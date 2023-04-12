@@ -10,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.java.Bus_Booking_System.components.Bus;
+import com.project.java.Bus_Booking_System.components.Express;
+import com.project.java.Bus_Booking_System.components.Luxary;
 import com.project.java.Bus_Booking_System.components.Route;
+import com.project.java.Bus_Booking_System.components.Sleeper;
 import com.project.java.Bus_Booking_System.components.Station;
 import com.project.java.Bus_Booking_System.components.Volvo;
 import com.project.java.Bus_Booking_System.service.Busservice;
@@ -52,15 +55,14 @@ public class AdminController {
 	
 	@RequestMapping("/addbus")
 	public void addbus() {
-		Volvo a = new Volvo();
-		Date d = Date.valueOf("2023-04-04");
-		a.setJournydate(d);
+		Sleeper a = new Sleeper();
+		Date d = Date.valueOf("2023-04-21");
 		Route n = r.getroutebyid(1);
 		a.setRoute(n);
-		a.setName("0630BRDNHRNRV46");
-		int price = (int)n.getDistance()*4;
+		a.setName("1515VPIBHJSLVLV");
+		int price = (int)n.getDistance()*5;//4 for volvo 3 for luxary and 2 for express 5 for sleeper
 		a.setPriceperseat(price);
-		a.setSpeedperhour(70);
+		a.setSpeedperhour(75);
 		System.out.println(a.getPriceperseat());
 //		bs.addbus(a);
 	}

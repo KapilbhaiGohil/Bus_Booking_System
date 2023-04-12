@@ -14,6 +14,10 @@ public class Express extends Bus{
 	@Column(name = "Total_no_of_seat")
 	private boolean[] seats = new boolean[50];
 	
+	
+	public Express() {
+		super();
+	}
 	public int getSpeedperhour() {
 		return speedperhour;
 	}
@@ -29,8 +33,9 @@ public class Express extends Bus{
 	public boolean[] getSeats() {
 		return seats;
 	}
-	public void setSeats(int number) {
-		this.seats[number] = false;
+	
+	public void setSeats(boolean[] seats) {
+		this.seats = seats;
 	}
 	public Express(int speedperhour, int priceperseat) {
 		super();

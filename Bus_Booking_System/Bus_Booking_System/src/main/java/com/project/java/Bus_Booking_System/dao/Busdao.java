@@ -1,5 +1,6 @@
 package com.project.java.Bus_Booking_System.dao;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,8 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.java.Bus_Booking_System.components.Bus;
+import com.project.java.Bus_Booking_System.components.Express;
+import com.project.java.Bus_Booking_System.components.Luxary;
 import com.project.java.Bus_Booking_System.components.Route;
+import com.project.java.Bus_Booking_System.components.Sleeper;
 import com.project.java.Bus_Booking_System.components.Station;
+import com.project.java.Bus_Booking_System.components.Volvo;
 import com.project.java.Bus_Booking_System.service.Routeservice;
 
 import jakarta.persistence.EntityManager;
@@ -62,7 +67,7 @@ public class Busdao {
 		List<Route> routelist=new ArrayList<Route>();
 		try {
 			System.out.println(source.getId());
-			Query q = e.createNativeQuery("SELECT DISTINCT route_id FROM `route_stations` WHERE stations_id= "+source.getId()+" OR stations_id= "+dest.getId());;
+			Query q = e.createNativeQuery("SELECT DISTINCT route_id FROM `route_stations` WHERE stations_id= "+source.getId()+" OR stations_id= "+dest.getId());
 			List<Integer> numbers = q.getResultList();
 			System.out.println(numbers);
 			for (Iterator iterator = numbers.iterator(); iterator.hasNext();) {
@@ -89,6 +94,7 @@ public class Busdao {
 						break;
 					}
 				}
+				
 			}
 			System.out.println("this is a route : "+routelist);
 			System.out.print("this is a bus : "+b);
@@ -99,4 +105,11 @@ public class Busdao {
 		return b;
 	}
 	
+	@Transactional
+	public Bus addbusbyjournydate(Bus d) {
+		Session s = e.unwrap(Session.class);
+		s.persist(d);
+		s.close();
+		return d;
+	}
 }

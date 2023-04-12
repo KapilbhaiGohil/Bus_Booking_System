@@ -29,8 +29,14 @@ public class Sleeper extends Bus{
 	public boolean[] getSeats() {
 		return seats;
 	}
-	public void setSeats(int number) {
-		this.seats[number] = false;
+	
+	public void setSeats(boolean[] seats) {
+		this.seats = seats;
+	}
+	
+	
+	public Sleeper() {
+		super();
 	}
 	public Sleeper(int speedperhour, int priceperseat) {
 		super();

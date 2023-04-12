@@ -41,6 +41,7 @@ public class Route {
 		return stations;
 	}
 	public void setStations(List<Station> stations) {
+		
 		this.stations = stations;
 	}
 	public Time getDepttime() {

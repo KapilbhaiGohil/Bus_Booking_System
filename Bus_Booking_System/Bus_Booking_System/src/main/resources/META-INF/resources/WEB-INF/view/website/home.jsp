@@ -12,6 +12,20 @@
 <style>
 	<%@include file="/WEB-INF/view/base.css" %>
 </style>
+<style>
+	select{
+	width: 15%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 10px;
+	}
+	input{
+		width: 15%;
+	}
+</style>
 <body>
 	<div class="nav" id="navbar">
 		<span class="logo">	
@@ -35,21 +49,32 @@
 			<c:redirect url="login"></c:redirect>
 		</c:when>
 		<c:otherwise>
-		<form method='post' action='searchresult'>
-		<select id="source" name = 'source' ' onclick="myfunction()"   required placeholder="Pick a state...">
-			<option value="" disabled selected>SOURCE</option>
-			<option value="NADIAD">NADIAD</option>
-			<option value="VADODARA">VADODARA</option>
-			<option value="AHMEDABAD">AHMEDABAD</option>
-			<option value="BHAVNAGAR">BHAVNAGAR</option>
-		  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<!-- <input type='search' list="cities" name ='source' placeholder='Source'> -->
-			<select id="destination" name = 'destination'  required>
-			<option value="" disabled selected>DESTINATION</option>
-		  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type='date' name = 'date' required id='inputdate' placeholder='onwards'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type='Submit' value="Check For Bus">
-		</form>
+		<center>
+			<form method='post' action='searchresult'>
+			<select id="source" name = 'source' ' onclick="myfunction()"   required placeholder="Pick a state...">
+				<option value="" disabled selected>SOURCE</option>
+				<option value="NADIAD">NADIAD</option>
+				<option value="VADODARA">VADODARA</option>
+				<option value="AHMEDABAD">AHMEDABAD</option>
+				<option value="BHAVNAGAR">BHAVNAGAR</option>
+			  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- <input type='search' list="cities" name ='source' placeholder='Source'> -->
+				<select id="destination" name = 'destination'  required>
+				<option value="" disabled selected>DESTINATION</option>
+			  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type='date' name = 'date' required id='inputdate' placeholder='onwards'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<select id="noseat" required name = "noseat">
+				<option value=""  selected>Seats</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type='Submit' value="Check For Bus">
+			</form>
+		</center>
 		</c:otherwise>
 	</c:choose>
     </div>

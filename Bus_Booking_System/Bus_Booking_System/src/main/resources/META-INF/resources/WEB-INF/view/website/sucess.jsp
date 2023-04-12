@@ -6,7 +6,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>basic</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
@@ -29,7 +28,8 @@
     </div>
     <div style="padding:5%;">
     	<h1>Success</h1><hr>
-    	<p>Your seat has been sucessfully booked</p><br>
+    	<p>Your seat/s has been sucessfully booked</p>
+    	<p>You can check your <a href="/checkticket">ticket here</a></p>
     </div>
     <script type="text/javascript">
 		<%@include file="/WEB-INF/view/base.js" %>

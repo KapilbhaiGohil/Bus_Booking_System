@@ -29,12 +29,17 @@ public class Luxary extends Bus {
 	public boolean[] getSeats() {
 		return seats;
 	}
-	public void setSeats(int number) {
-		this.seats[number] = false;
+	
+	public void setSeats(boolean[] seats) {
+		this.seats = seats;
 	}
 	public Luxary(int speedperhour, int priceperseat) {
 		super();
 		this.speedperhour = speedperhour;
 		this.priceperseat = priceperseat;
 	}
+	public Luxary() {
+		super();
+	}
+	
 }
