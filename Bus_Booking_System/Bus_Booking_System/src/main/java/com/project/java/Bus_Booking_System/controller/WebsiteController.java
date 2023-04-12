@@ -16,6 +16,7 @@ import com.project.java.Bus_Booking_System.components.Express;
 import com.project.java.Bus_Booking_System.components.Luxary;
 import com.project.java.Bus_Booking_System.components.Sleeper;
 import com.project.java.Bus_Booking_System.components.Station;
+import com.project.java.Bus_Booking_System.components.User;
 import com.project.java.Bus_Booking_System.components.Volvo;
 import com.project.java.Bus_Booking_System.components.person;
 import com.project.java.Bus_Booking_System.service.Busservice;
@@ -154,7 +155,7 @@ public class WebsiteController {
 			p.add(p1);
 		}
 		Bus newbus;
-		if(type.equals("sleeper")) {
+		if(type.equals("sleeper")){
 			newbus = (Sleeper) b.getbusbyid(busid);
 		}else if(type.equals("volvo")){
 			newbus = (Volvo) b.getbusbyid(busid);
@@ -176,6 +177,8 @@ public class WebsiteController {
 		newbooking.setSeatno(selected);
 		newbooking.setTo(dest.getName());
 		newbooking.setTotal_price(price*selected.length);
+		User us = (User) req.getSession().getAttribute("loginstatus");
+		newbooking.setMail(us.getEmail());
 		boservice.addbooking(newbooking);
 		b.bookseat(selected, jourdate, busid);
 		return "website/sucess";
