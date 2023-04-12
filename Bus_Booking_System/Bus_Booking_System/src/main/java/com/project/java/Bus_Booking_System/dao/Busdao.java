@@ -44,6 +44,12 @@ public class Busdao {
 		return c;
 	}
 	
+	public Bus getbus_bookin_byid(int busId) {
+		TypedQuery<Bus> q = e.createQuery("from bus_bookings where id = "+busId, Bus.class);
+		Bus c = q.getSingleResult();
+		return c;
+	}
+	
 	@Transactional
 	public void updatebus(Bus a) {
 		Session s = e.unwrap(Session.class);

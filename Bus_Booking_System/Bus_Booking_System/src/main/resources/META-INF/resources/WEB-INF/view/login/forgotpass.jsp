@@ -12,56 +12,56 @@
 	<%@include file="/WEB-INF/view/base.css" %>
 </style>
 <body>
-	<div class="nav" id="navbar">
-		<span class="logo">	
-			<div id="mySidenav" class="sidenav">
-				<div>
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				</div>
-				<a href="/login">Sign in</a><br><br>
-				<a href="/register">Sign up</a><br>
-			</div>
-			<a href="javascript:void(0);" class="icon" onclick="openNav()">
-					<i class="fa fa-bars"></i>
-			</a>
-		</span>
-        <a href="/register" class="" style="float:right;">Sign up</a>
-        <a href="/login" class="right">Sign in</a>
-    </div>
-    <div style="padding:5%;">
-	
-	
     <c:choose>
     <c:when test="${not empty loginstatus}">
 	<c:redirect url="home"></c:redirect>
 	</c:when>
 	<c:otherwise>
 		<c:choose>
-		<c:when test="${not empty verify }">
-		<h1>Set New Password</h1><hr>
-		<p>Enter the new password you want to set</p><br>
-		<c:if test="${not empty error }">
-		<p class="error">${error}</p>
-		</c:if>
-		<form method = "post" action = "/changepass">
-		<label for="pass1">Password</label><br>
-		<input type="text" name="pass1"><br>
-		<label for="pass2">conform password</label><br>
-		<input type="text" name="pass2"><br>
-		<input type='submit' value= "Submit">
-		</form>
+			<c:when test="${not empty verify}">
+			<div class="container">
+				<div class="account-text">
+					Enter new password
+				</div>
+				<hr>
+				<c:if test="${not empty error }">
+					<p class="error">${error}</p>
+				</c:if>
+				<div class="register-form">
+					<form method = "post" action = "/changepass">
+						<div class="row">
+							<input placeholder="Password" style="width: 703px; height: 40px; margin-left: 35px;" class="input-field" type="text" name="pass1">
+						</div>
+						<div class="row">
+							<input placeholder="Confirm-Password" style="width: 703px; height: 40px; margin-left: 35px;" class="input-field" type="text" name="pass2">
+						</div>
+						<div class="row">
+							<input style="background-color:#0275d8; border-radius:40px; margin-left: 38px; width: 713px; height: 40px; border: none" type='submit' value= "Submit">
+						</div>
+					</form>
+				</div>
+			</div>
 		</c:when>
-		<c:otherwise>	
-		<h1>Email</h1><hr>
-		<p>Enter the email with which your account is registerd</p>
-		<c:if test="${not empty error }">
+	<c:otherwise>	
+	<c:if test="${not empty error }">
 		<p class="error">${error}</p>
-		</c:if>
-		<form method = "post" action = "/forgotpass">
-		<label for="email" >Email</label><br>
-		<input type="email" required name="email">&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type='submit' value= "Get OTP">
-		</form>
+	</c:if>
+		<div class="container">
+			<div class="account-text">
+				Enter email of your account?
+			</div>
+			<hr>
+			<div class="register-form">
+				<form method = "post" action = "/forgotpass">
+					<div class="row">
+						<input placeholder="Enter Email" class="input-field" type="email" required name="email" style="width: 703px; height: 40px; margin-left: 35px;">
+					</div>
+					<div class="row">
+						<input type='submit' value="Get OTP" style="background-color:#0275d8; border-radius:40px; margin-left: 38px; width: 713px; height: 40px; border: none">
+					</div>
+				</form>
+			</div>
+		</div>
 		</c:otherwise>
 		</c:choose>
 	</c:otherwise>

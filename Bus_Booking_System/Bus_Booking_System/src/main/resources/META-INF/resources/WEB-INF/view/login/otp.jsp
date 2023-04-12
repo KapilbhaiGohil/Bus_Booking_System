@@ -13,34 +13,27 @@
 	<%@include file="/WEB-INF/view/base.css" %>
 </style>
 <body>
-	<div class="nav" id="navbar">
-		<span class="logo">	
-			<div id="mySidenav" class="sidenav">
-				<div>
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<div class="container">
+		<div class="account-text">
+			Enter OTP which is sended you!
+		</div>
+		<hr>
+		<c:if test="${not empty error }">
+			<p class="error">${error}</p>
+		</c:if>
+		<div class="register-form">
+			<form action="/forgotpass" method="post">	
+				<div class="row">
+					<input type="number" maxlength="6" name="votp" style="width: 703px; height: 40px; margin-left: 35px;">
 				</div>
-				<a href="/login">Sign in</a><br><br>
-				<a href="/register">Sign up</a><br>
-			</div>
-			<a href="javascript:void(0);" class="icon" onclick="openNav()">
-					<i class="fa fa-bars"></i>
-			</a>
-		</span>
-        <a href="/register" class="active" style="float:right;">Sign up</a>
-        <a href="/login" class="right">Sign in</a>
-    </div>
-    <div style="padding:5%;">
-    <h1>Enter OTP</h1><hr>
-    <p>Enter the otp sended to your mail address</p>
-    <c:if test="${not empty error }">
-	<p class="error">${error}</p>
-	</c:if>
-	<form action="/forgotpass" method = "post">	
-	<input type="number" maxlength="6" name="votp">
-	<input type='hidden' value = 'hidden'>
-	<input type="submit" value="Verify">
-	</form>    
-	 </div>
+				<div class="row">
+					<input type="submit" value="Verify" style="background-color:#0275d8; border-radius:40px; margin-left: 38px; width: 713px; height: 40px; border: none">
+				</div>
+			
+				<input type='hidden' value = 'hidden'>
+			</form>
+		</div>
+	</div>
     <script type="text/javascript">
 		<%@include file="/WEB-INF/view/base.js" %>
 	</script>

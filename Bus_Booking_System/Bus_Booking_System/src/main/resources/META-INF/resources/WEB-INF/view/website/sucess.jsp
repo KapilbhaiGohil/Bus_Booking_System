@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>basic</title>
+<title>Success</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -13,20 +13,14 @@
 	<%@include file="/WEB-INF/view/base.css" %>
 </style>
 <body>
-	<div class="nav" id="navbar">
-		<span class="logo">	
-			<div id="mySidenav" class="sidenav">
-				<div>
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				</div>
-					<a href="logout">Log out</a><br>
-			</div>
-			<a href="javascript:void(0);" class="icon" onclick="openNav()">
-					<i class="fa fa-bars"></i>
-			</a>
-		</span>
-        <p style="float:right;padding-right:20px;color:#f2f2f2;">Hello ${loginstatus.first_name}</p>
-    </div>
+	<div class="nav">
+		<div class="nav-left-text">
+			Hello ${loginstatus.first_name}
+		</div>
+		<div class="nav-logout">
+			<a href="logout">Log out</a>
+		</div>
+	</div>
     <div style="padding:5%;">
     	<h1>Success</h1><hr>
     	<p>Your seat has been sucessfully booked</p><br>

@@ -29,5 +29,4 @@ public class Booking {
 	private int to;
 	@Column
 	private int distance;
-	
 }

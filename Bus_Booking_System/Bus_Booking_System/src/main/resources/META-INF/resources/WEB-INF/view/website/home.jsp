@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>basic</title>
+<title>Booking</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -13,43 +13,50 @@
 	<%@include file="/WEB-INF/view/base.css" %>
 </style>
 <body>
-	<div class="nav" id="navbar">
-		<span class="logo">	
-			<div id="mySidenav" class="sidenav">
-				<div>
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				</div>
-				<a href="logout">Log out</a><br>
-			</div>
-			<a href="javascript:void(0);" class="icon" onclick="openNav()">
-					<i class="fa fa-bars"></i>
-			</a>
-		</span>
-			<p style="float:right;padding-right:20px;color:#f2f2f2;">Hello ${loginstatus.first_name}</p>
-    </div>
+	<div class="nav">
+		<div class="nav-left-text">
+			Hello ${loginstatus.first_name}
+		</div>
+		<div class="nav-logout">
+			<a href="logout">Log out</a>
+		</div>
+	</div>
     <div style="padding:5%;">
-    	<h1>Home</h1><hr>
-    	<p></p><br>
-    		<c:choose>
+    	<c:choose>
 		<c:when test="${empty loginstatus}">
 			<c:redirect url="login"></c:redirect>
 		</c:when>
 		<c:otherwise>
-		<form method='post' action='searchresult'>
-		<select id="source" name = 'source' ' onclick="myfunction()"   required placeholder="Pick a state...">
-			<option value="" disabled selected>SOURCE</option>
-			<option value="NADIAD">NADIAD</option>
-			<option value="VADODARA">VADODARA</option>
-			<option value="AHMEDABAD">AHMEDABAD</option>
-			<option value="BHAVNAGAR">BHAVNAGAR</option>
-		  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<!-- <input type='search' list="cities" name ='source' placeholder='Source'> -->
-			<select id="destination" name = 'destination'  required>
-			<option value="" disabled selected>DESTINATION</option>
-		  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type='date' name = 'date' required id='inputdate' placeholder='onwards'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type='Submit' value="Check For Bus">
-		</form>
+		<div class="container" style="margin-top: -30px;">
+			<div class="account-text">
+				Book your ticket!
+			</div>
+			<hr>
+			<div class="register-form">
+				<form method='post' action='searchresult'>
+					<div class="row">
+						<select class="input-field" id="source" name = 'source'  onclick="myfunction()" required style="width: 703px; height: 40px; margin-left: 35px;">
+							<option value="" disabled selected>SOURCE</option>
+							<option value="NADIAD">NADIAD</option>
+							<option value="VADODARA">VADODARA</option>
+							<option value="AHMEDABAD">AHMEDABAD</option>
+							<option value="BHAVNAGAR">BHAVNAGAR</option>
+						 </select>
+					</div>
+					<div class="row">
+						<select id="destination" name = 'destination'  required style="width: 703px; height: 40px; margin-left: 35px; border-radius: 40px; background-color: white; padding: 10px;">
+							<option value="" disabled selected>DESTINATION</option>
+						 </select>
+					</div>
+					<div class="row">
+						<input style="width: 703px; height: 40px; margin-left: 35px; border-radius: 40px; background-color: white;" type='date' name = 'date' required id='inputdate' placeholder='onwards'>
+					</div>
+					<div class="row">
+						<input type='Submit' value="Check For Bus" style="background-color:#0275d8; border-radius:40px; margin-left: 38px; width: 713px; height: 40px; border: none">
+					</div>
+				</form>
+			</div>
+		</div>
 		</c:otherwise>
 	</c:choose>
     </div>
