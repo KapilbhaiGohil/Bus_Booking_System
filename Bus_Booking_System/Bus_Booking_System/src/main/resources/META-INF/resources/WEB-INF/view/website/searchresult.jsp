@@ -57,20 +57,14 @@
 
 </style>
 <body>
-	<div class="nav" id="navbar">
-		<span class="logo">	
-			<div id="mySidenav" class="sidenav">
-				<div>
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				</div>
-					<a href="logout">Log out</a><br>
-			</div>
-			<a href="javascript:void(0);" class="icon" onclick="openNav()">
-					<i class="fa fa-bars"></i>
-			</a>
-		</span>
-        <p style="float:right;padding-right:20px;color:#f2f2f2;">Hello ${loginstatus.first_name}</p>
-    </div>
+	<div class="nav">
+		<div class="nav-left-text">
+			Hello ${loginstatus.first_name}
+		</div>
+		<div class="nav-logout">
+			<a href="logout">Log out</a>
+		</div>
+	</div>
     <div style="padding:5%;">
     	<h1>Total Trips Availabile ${volvo.size()+sleeper.size()+express.size()+luxary.size()}</h1><hr>
     	<p></p><br>

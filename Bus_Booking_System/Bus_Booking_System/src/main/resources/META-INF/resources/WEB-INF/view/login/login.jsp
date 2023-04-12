@@ -7,6 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Log in</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <style>
 	<%@include file="/WEB-INF/view/base.css" %>
@@ -17,42 +18,33 @@
 	<c:redirect url="home"></c:redirect>
 	</c:when>
 	<c:otherwise>
-	<div class="nav" id="navbar">
-        <span class="logo">	
-			<div id="mySidenav" class="sidenav">
-				<div>
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				</div>
-				<a href="/login">Sign in</a><br><br>
-				<a href="/register">Sign up</a><br>
-			</div>
-			<a href="javascript:void(0);" class="icon" onclick="openNav()">
-					<i class="fa fa-bars"></i>
-			</a>
-		</span>
-        <a href="/register" class="right">Sign up</a>
-        <a href="/login" class="active" style="float:right;">Sign in</a>
-    </div>
-    <div style="padding: 5%;">
-			<h1>Log in</h1><hr style="">
-			<p>Enter the login details</p>
+	<div class="container">
+		<div class="account-text">
+			Login
+		</div>
+		<hr>
 		<c:if test="${not empty loginerror}">
-		<p class="error">${loginerror}</p>
+			<p class="error">${loginerror}</p>
 		</c:if>
-	    <form action="" method="post">
-			<label for="username">Username</label><br>
-	        <input type="text" required name="username" id=""><br>
-			<label for="password">Password</label><br>
-	        <input type="password" required name="password" id=""><br>
-	        <p>Don't have an account? <a href="/register">Register here</a></p>
-	        <p>Click here if you <a href="/forgotpass">Forgotten your password</a></p>
-	        <input type="submit" name="" id="" value="Sign in">
-	    </form>
+		<div class="register-form">
+			<form action="" method="post">
+				<div xclass="row">
+						<input id="" style="width: 703px; height: 40px; margin-left: 35px;" class="input-field" type="text" placeholder="Username" name="username" value="${user.first_name}">
+				</div>
+				<div class="row">
+						<input id="" style="width: 703px; height: 40px; margin-left: 35px;" class="input-field" type="password" placeholder="Password" name="password" value="${user.first_name}">
+				</div>
+				<div class="row" style="margin-top: 40px;">
+						<input style="background-color:#0275d8; border-radius:40px; margin-left: 38px; width: 713px; height: 40px; border: none" type="submit" required name="" id="" value="Login">
+				</div>
+				<div class="row">
+					<a href="/register" style="margin-left:40px; color: white; font-family:'Poppins', sans-serif;">Register</a>
+					<a href="/forgotpass" style="margin-left:530px; color: white; font-family:'Poppins', sans-serif;">Forgot password</a>
+				</div>
+			</form>
+		</div>
 	</div>
 	</c:otherwise>
 	</c:choose>
-	<script type="text/javascript">
-		<%@include file="/WEB-INF/view/base.js" %>
-	</script>
 </body>
 </html>

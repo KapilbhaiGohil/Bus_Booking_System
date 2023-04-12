@@ -41,7 +41,7 @@ public class UserController {
 	
 	@RequestMapping("/forgotpass")
 	public String forgotpass(HttpServletRequest req,String email,String votp) {					
-				if(email == null&&votp ==null) {			
+				if(email == null&&votp == null) {			
 					return "login/forgotpass";
 				}else {
 					String s = uservice.forgotpass(req.getSession(), email, votp);
@@ -91,4 +91,8 @@ public class UserController {
 		return "login/logout";
 	}
 	
+	@RequestMapping("/Admin-dashboard")
+	public String AdminDashboard() {
+		return "admin/add";
+	}
 }
