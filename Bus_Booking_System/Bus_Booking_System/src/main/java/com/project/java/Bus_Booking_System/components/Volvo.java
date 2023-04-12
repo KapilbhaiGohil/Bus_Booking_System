@@ -21,6 +21,7 @@ public class Volvo extends Bus {
 	public void setSpeedperhour(int speedperhour) {
 		this.speedperhour = speedperhour;
 	}
+	
 	public int getPriceperseat() {
 		return priceperseat;
 	}

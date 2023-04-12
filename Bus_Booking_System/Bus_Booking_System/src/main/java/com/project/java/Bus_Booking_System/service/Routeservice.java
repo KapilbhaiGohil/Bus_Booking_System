@@ -31,7 +31,7 @@ public class Routeservice {
         double h2 = elev2;
         double dH = h2 - h1;
         double distance = Math.sqrt(d * d + dH * dH);
-        return distance/1000;
+        return (distance/1000)*2.3;
     }
 	public void addroute(Time ti,Time dest,List<Station> list,Station source,Station fin) {
 		Route a = new Route();

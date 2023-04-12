@@ -27,26 +27,9 @@ public class Bus {
 	private int id;
 	@Column
 	private String name;
-	@Column
-	private Date journydate;
-	public Date getJournydate() {
-		return journydate;
-	}
-	public void setJournydate(Date journydate) {
-		this.journydate = journydate;
-	}
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Route route;
-	@OneToMany
-	private List<Booking> bookings=new ArrayList<Booking>();
-	
-	
-	public List<Booking> getBookings() {
-		return bookings;
-	}
-	public void setBookings(List<Booking> bookings) {
-		this.bookings = bookings;
-	}
 	public int getId() {
 		return id;
 	}
@@ -72,6 +55,5 @@ public class Bus {
 	public Bus() {
 		super();
 	}
-	
 	
 }
