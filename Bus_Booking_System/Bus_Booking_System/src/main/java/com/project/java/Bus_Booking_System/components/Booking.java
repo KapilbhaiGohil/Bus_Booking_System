@@ -40,8 +40,15 @@ public class Booking {
 	private Date journydate;
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<person> person;
+	@Column
+	private String mail;
 	
-	
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 	public int getId() {
 		return id;
 	}

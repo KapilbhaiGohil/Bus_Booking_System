@@ -30,6 +30,7 @@ public class Bus {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Route route;
+
 	public int getId() {
 		return id;
 	}
